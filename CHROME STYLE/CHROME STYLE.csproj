@@ -64,8 +64,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Animation\PageAnimation.cs" />
+    <Compile Include="Animation\PageAtomicAnims.cs" />
+    <Compile Include="Animation\StoryboardHelpers.cs" />
+    <Compile Include="Attached Properties\BaseAttachedProperty.cs" />
+    <Compile Include="Attached Properties\PasswordBoxAttachedProperties - Copy.cs" />
+    <Compile Include="Attached Properties\IsBusyAttachedProperty.cs" />
+    <Compile Include="Datamodels\ApplicationPage.cs" />
+    <Compile Include="Expression\Expression helpers.cs" />
+    <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\IHavePassword.cs" />
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Security\SecureStringHelpers.cs" />
+    <Compile Include="Value Converter\ApplicationPageValueConverter.cs" />
+    <Compile Include="Value Converter\BaseConverter.cs" />
+    <Compile Include="Value Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Viewmodel\Base\BaseViewModel.cs" />
+    <Compile Include="Viewmodel\Base\RelayCommandParametrized.cs" />
     <Compile Include="Viewmodel\Base\RelayCommand.cs" />
+    <Compile Include="Viewmodel\LoginPageViewModel.cs" />
     <Compile Include="Viewmodel\WindowResize.cs" />
     <Compile Include="Viewmodel\WindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
@@ -80,6 +99,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Texts.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -124,6 +147,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resurse\Font\FontAwesome.ttf" />
     <Resource Include="Resurse\Font\Lato-Black.ttf" />
     <Resource Include="Resurse\Font\Lato-BlackItalic.ttf" />
     <Resource Include="Resurse\Font\Lato-Bold.ttf" />
@@ -151,6 +175,9 @@
     <Resource Include="Resurse\Img\Logo\icon.ico" />
     <Resource Include="Resurse\Img\Logo\logo-small.png" />
     <Resource Include="Resurse\Img\Logo\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resurse\Img\Background\emoji-background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.1.1\build\Fody.targets" Condition="Exists('..\packages\Fody.6.1.1\build\Fody.targets')" />

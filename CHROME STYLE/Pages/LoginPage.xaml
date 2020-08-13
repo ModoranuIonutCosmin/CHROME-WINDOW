@@ -1,0 +1,64 @@
+﻿<local:BasePage
+    x:Class="CHROME_STYLE.LoginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CHROME_STYLE"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Page"
+    Title="LoginPage"
+    d:DesignHeight="700"
+    d:DesignWidth="700"
+    x:TypeArguments="local:LoginPageViewModel"
+    mc:Ignorable="d">
+
+    <Border>
+        <Grid>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    TextBlock.TextAlignment="Center">
+                    <Border
+                        Width="300"
+                        Margin="50,50,50,0"
+                        Padding="15,50,15,15"
+                        Background="{StaticResource ForegroundLightBrush}"
+                        CornerRadius="10">
+                        <StackPanel>
+                            <TextBlock
+                                FontFamily="{StaticResource LatoRegular}"
+                                FontSize="{StaticResource FontSizeLarge}"
+                                Foreground="{StaticResource WordBlueBrush}"
+                                Text="Sign Up" />
+                            <TextBlock
+                                Margin="0,0,0,20"
+                                FontSize="{StaticResource FontSizeRegular}"
+                                Foreground="{StaticResource ForegroundDarkBrush}"
+                                Text="It's about to get fun" />
+                            <!--  Email  -->
+                            <TextBox Tag="Email" Text="{Binding Email}" />
+                            <!--  Password  -->
+                            <PasswordBox
+                                x:Name="PassBox"
+                                Margin="0,0,0,20"
+                                Tag="Password" />
+                            <!--  Next  -->
+                            <Button
+                                HorizontalAlignment="Center"
+                                local:IsBusyProperty.Value="{Binding LoginIsRunning}"
+                                Command="{Binding LoginCommand}"
+                                CommandParameter="{Binding ElementName=Page}"
+                                Content="Next"
+                                FontFamily="{StaticResource LatoBold}" />
+                        </StackPanel>
+                    </Border>
+                    <Button
+                        HorizontalAlignment="Center"
+                        Content="I already have an account"
+                        Style="{StaticResource TextButton}" />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</local:BasePage>
